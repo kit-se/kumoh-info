@@ -71,5 +71,6 @@ export default TabNavigator(
     tabBarOptions: {
       showLabel: false,
     },
+    initialRouteName: 'Home',
   },
 );
