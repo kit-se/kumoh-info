@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
   },
 });
 export default class BusScreen extends React.Component {
-  getInitialState = () => ({
+  getInitialState ={
     initialPosition: 'unknown',
     lastPosition: 'unknown',
-  });
+  };
 
   componentDidMount = () => {
     navigator.geolocation.getCurrentPosition(
