@@ -17,7 +17,7 @@ export default class DummyScreen extends React.Component {
     return (
       <ScrollView style={styles.container}>
 
-        <Text>sss </Text>
+        <Text>내용 넣기</Text>
       </ScrollView>
     );
   }
