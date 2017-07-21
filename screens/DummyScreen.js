@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
-export default class DummyScreen extends React.Component {
+export default class DummyScreen extends Component {
   static navigationOptions = {
     title: 'Links',
   };
@@ -16,7 +16,6 @@ export default class DummyScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-
         <Text>내용 넣기</Text>
       </ScrollView>
     );

@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     backgroundColor: SocialColors.tumblr,
   },
 });
-export default class BusScreen extends React.Component {
+export default class BusScreen extends Component {
   static navigationOptions = {
     header: null,
 
