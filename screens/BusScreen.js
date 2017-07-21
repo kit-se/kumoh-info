@@ -1,14 +1,14 @@
 /* eslint no-console: 0 */
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   ScrollView,
+  Linking,
 } from 'react-native';
 import { Button, Grid, Row, Col, Card } from 'react-native-elements';
 
-import Colors from '../constants/Colors';
 import SocialColors from '../constants/SocialColors';
 
 
@@ -41,9 +41,16 @@ const styles = StyleSheet.create({
     backgroundColor: SocialColors.tumblr,
   },
 });
-export default class BusScreen extends React.Component {
+export default class BusScreen extends Component {
   static navigationOptions = {
     header: null,
+
+  };
+
+  _handleLearnMorePress = () => {
+    Linking.openURL(
+      'http://kumoh.info',
+    );
   };
 
   render() {
@@ -63,6 +70,7 @@ export default class BusScreen extends React.Component {
                 backgroundColor={SocialColors.facebook}
                 borderRadius={5}
                 buttonStyle={styles.Button}
+                onPress={this._handleLearnMorePress}
               />
               <Button
                 title="금오공대로"

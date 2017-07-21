@@ -12,6 +12,7 @@ import HomeScreen from '../screens/HomeScreen';
 import DummyScreen from '../screens/DummyScreen';
 import EtcScreen from '../screens/EtcScreen';
 import BusScreen from '../screens/BusScreen';
+import CalendarScreen from '../screens/CalendarScreen';
 
 export default TabNavigator(
   {
@@ -25,7 +26,7 @@ export default TabNavigator(
       screen: HomeScreen,
     },
     Calendar: {
-      screen: DummyScreen,
+      screen: CalendarScreen,
     },
     Etc: {
       screen: EtcScreen,
