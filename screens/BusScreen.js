@@ -4,8 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
-  Linking,
   FlatList,
 } from 'react-native';
 import { Button, Grid, Row, Col, Card } from 'react-native-elements';
@@ -45,15 +43,8 @@ const styles = StyleSheet.create({
 export default class BusScreen extends Component {
   static navigationOptions = {
     header: null,
-
   };
 
-  _handleLearnMorePress = () => {
-    Linking.openURL(
-      'http://kumoh.info',
-    );
-    header: null
-  };
   constructor(props) {
       super(props);
       this.state = {
@@ -117,29 +108,6 @@ export default class BusScreen extends Component {
       });
   };
   render() {
-    return (
-      <View style={styles.container}>
-        <Grid containerStyle={{ flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          alignSelf: 'center',
-          paddingTop: 50,
-          backgroundColor: '#95DEE3' }}
-        >
-          <Col size={25} containerStyle={{ marginBottom: 10 }}>
-            <Row>
-              <Button
-                title="구미역으로"
-                backgroundColor={SocialColors.facebook}
-                borderRadius={5}
-                buttonStyle={styles.Button}
-                onPress={this._handleLearnMorePress}
-              />
-              <Button
-                title="금오공대로"
-                backgroundColor={SocialColors.linkedin}
-                borderRadius={5}
-                buttonStyle={styles.Button}
       if (this.state.isLoading) {
           return (
               <View style={styles.container}>
