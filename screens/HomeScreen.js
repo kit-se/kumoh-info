@@ -8,9 +8,7 @@ import {
   Text,
   View,
 } from 'react-native';
-
-import { Grid, Col, Row } from 'react-native-elements';
-import { MonoText } from '../components/StyledText';
+import { Card } from 'react-native-elements';
 
 const styles = StyleSheet.create({
   container: {
@@ -125,13 +123,14 @@ export default class HomeScreen extends React.Component {
             />
           </View>
         </ScrollView>
-        <Grid>
-          <Col>
-            <Text>
-              ddddd
-            </Text>
-          </Col>
-        </Grid>
+        <ScrollView>
+          <Card containerStyle={{ marginTop: 15 }} title="1" id="fristCard">
+            <Text style={styles.fonts} h1>h1 Heading</Text>
+          </Card>
+          <Card containerStyle={{ marginTop: 15 }} title="내일" id="secondCard">
+            <Text style={styles.fonts} h1>h1 Heading</Text>
+          </Card>
+        </ScrollView>
       </View>
     );
   }

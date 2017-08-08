@@ -43,14 +43,25 @@ const styles = StyleSheet.create({
 });
 export default class BusScreen extends React.Component {
   static navigationOptions = {
-    header: null,
-
+    header: null
   };
+  constructor(props) {
+      super(props);
+      this.state = {
+          isLoading: true
+      }
+  }
 
-  _handleLearnMorePress = () => {
-    Linking.openURL(
-      'http://kumoh.info',
-    );
+  _handlerKitBusInfo = () => {
+      fetch('http://localhost:3000/api/businfo/0')
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  isLoading: false,
+                  dataSource: responseJson,
+              }, function() {
+                  // do something with new state
+              });
   };
 
   render() {
@@ -70,7 +81,7 @@ export default class BusScreen extends React.Component {
                 backgroundColor={SocialColors.facebook}
                 borderRadius={5}
                 buttonStyle={styles.Button}
-                onPress={this._handleLearnMorePress}
+                onPress={this._handlerKitBusInfo}
               />
               <Button
                 title="금오공대로"
