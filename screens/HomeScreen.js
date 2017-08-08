@@ -132,6 +132,14 @@ export default class HomeScreen extends Component {
             </Text>
           </Col>
         </Grid>
+        <ScrollView>
+          <Card containerStyle={{ marginTop: 15 }} title="1" id="fristCard">
+            <Text style={styles.fonts} h1>h1 Heading</Text>
+          </Card>
+          <Card containerStyle={{ marginTop: 15 }} title="내일" id="secondCard">
+            <Text style={styles.fonts} h1>h1 Heading</Text>
+          </Card>
+        </ScrollView>
       </View>
     );
   }
