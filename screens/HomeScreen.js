@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Linking,
@@ -8,8 +8,10 @@ import {
   Text,
   View,
 } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
-
+import { MonoText } from '../components/StyledText';
+const settings = (<MaterialCommunityIcons name = "settings" size={20} />);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -92,9 +94,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class HomeScreen extends React.Component {
+export default class HomeScreen extends Component {
   static navigationOptions = {
     title: '금오공대 알리미',
+    headerRight: <Text>{settings}</Text>
   };
 
 
@@ -112,17 +115,13 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-        >
           <View style={styles.welcomeContainer}>
             <Image
               source={require('../assets/icons/app.png')}
               style={styles.welcomeImage}
             />
+
           </View>
-        </ScrollView>
         <ScrollView>
           <Card containerStyle={{ marginTop: 15 }} title="1" id="fristCard">
             <Text style={styles.fonts} h1>h1 Heading</Text>

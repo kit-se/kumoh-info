@@ -5,6 +5,7 @@ import {
   Text,
   View,
   FlatList,
+  ActivityIndicator
 } from 'react-native';
 import { Button, Grid, Row, Col, Card } from 'react-native-elements';
 
@@ -12,9 +13,6 @@ import SocialColors from '../constants/SocialColors';
 
 
 const styles = StyleSheet.create({
-  title: {
-    fontWeight: '500',
-  },
   Button: {
     marginTop: 15,
     paddingTop: 10,
@@ -27,18 +25,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  gumiStation: {
-    backgroundColor: SocialColors.facebook,
-  },
-  indong: {
-    backgroundColor: SocialColors.instagram,
-  },
-  kit: {
-    backgroundColor: SocialColors.linkedin,
-  },
-  oggye: {
-    backgroundColor: SocialColors.tumblr,
-  },
+  activityIndicator: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 480
+  }
 });
 export default class BusScreen extends React.Component {
   static navigationOptions = {
@@ -47,63 +39,61 @@ export default class BusScreen extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-          isLoading: true
+        isLoading: true,
+        isWorking: false
       }
   }
   _handlerGumiStationBusInfo = () => {
+    this.setState({isLoading: true});
       fetch('http://localhost:3000/api/businfo/0')
           .then((response) => response.json())
           .then((responseJson) => {
               this.setState({
-                  isLoading: false,
-                  dataSource: responseJson,
-              }, function() {
-              });
+                isLoading: false,
+                dataSource: responseJson
+              }, function() {});
           })
-          .catch((error) => {
-              console.error(error);
-      });
+          .catch((error) => {});
   };
   _handlerKitBusInfo = () => {
+    this.setState({isLoading: true});
     fetch('http://localhost:3000/api/businfo/1')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson,
-        }, function() {
-        });
+          dataSource: responseJson
+        }, function() {});
       })
       .catch((error) => {
-        console.error(error);
       });
   };
   _handlerIndongBusInfo = () => {
+    this.setState({isLoading: true});
     fetch('http://localhost:3000/api/businfo/2')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson,
-        }, function() {
-        });
+          dataSource: responseJson
+        }, function() {});
       })
       .catch((error) => {
-        console.error(error);
       });
   };
   _handlerOkgyeBusInfo = () => {
+    this.setState({isLoading: true});
     fetch('http://localhost:3000/api/businfo/3')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson,
+          dataSource: responseJson
         }, function() {
         });
       })
       .catch((error) => {
-        console.error(error);
+
       });
   };
   render() {
@@ -153,6 +143,11 @@ export default class BusScreen extends React.Component {
                           </Row>
                       </Col>
                       <Row size={75}>
+                        <ActivityIndicator
+                          animating={this.state.animating}
+                          style={styles.activityIndicator}
+                          size="large"
+                        />
                       </Row>
                   </Grid>
               </View>
@@ -210,7 +205,9 @@ export default class BusScreen extends React.Component {
                 data= {this.state.dataSource}
                 renderItem={({item}) =>
                   <Card containerStyle={{ marginTop: 15 }} title={item.station_name}>
-                    <Text style={styles.fonts} h1>{item.arrive_desc}</Text>
+                    {item.arrive_desc.map((iitem, i) =>
+                      <Text style={styles.fonts} key = {i} >{iitem.bus_no} {iitem.time} {iitem.location}</Text>
+                    )}
                   </Card>
                   }
               />
