@@ -45,7 +45,7 @@ export default class BusScreen extends React.Component {
   }
   _handlerGumiStationBusInfo = () => {
     this.setState({isLoading: true});
-      fetch('http://localhost:3000/api/businfo/0')
+      fetch('http://api.kumoh.info/api/businfo/0')
           .then((response) => response.json())
           .then((responseJson) => {
               this.setState({
@@ -57,7 +57,7 @@ export default class BusScreen extends React.Component {
   };
   _handlerKitBusInfo = () => {
     this.setState({isLoading: true});
-    fetch('http://localhost:3000/api/businfo/1')
+    fetch('http://api.kumoh.info/api/businfo/1')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -70,7 +70,7 @@ export default class BusScreen extends React.Component {
   };
   _handlerIndongBusInfo = () => {
     this.setState({isLoading: true});
-    fetch('http://localhost:3000/api/businfo/2')
+    fetch('http://api.kumoh.info/api/businfo/2')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -83,7 +83,7 @@ export default class BusScreen extends React.Component {
   };
   _handlerOkgyeBusInfo = () => {
     this.setState({isLoading: true});
-    fetch('http://localhost:3000/api/businfo/3')
+    fetch('http://api.kumoh.info/api/businfo/3')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
 export default class EtcScreen extends React.Component {
   static navigationOptions = {
-    title: null,
+    header: null,
   };
   render() {
     return (
