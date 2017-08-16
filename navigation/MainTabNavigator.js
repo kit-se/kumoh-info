@@ -9,7 +9,7 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/HomeScreen';
-import DummyScreen from '../screens/DummyScreen';
+import LibraryScreen from '../screens/LibraryScreen';
 import EtcScreen from '../screens/EtcScreen';
 import BusScreen from '../screens/BusScreen';
 import CalendarScreen from '../screens/CalendarScreen';
@@ -20,7 +20,7 @@ export default TabNavigator(
       screen: BusScreen,
     },
     Library: {
-      screen: DummyScreen,
+      screen: LibraryScreen,
     },
     Home: {
       screen: HomeScreen,
